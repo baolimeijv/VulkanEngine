@@ -5,6 +5,7 @@
 #include"LveDevice.h"
 #include"LveSwapChain.h"
 #include"LveGameObject.h"
+#include"LveRender.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -38,20 +39,14 @@ namespace lve
 	private:
 		LveWindow Window{ WIDTH,HEIGHT,"Hello Vulkan" };
 		LveDevice lveDevice{ Window };
-		std::unique_ptr<LveSwapChain> lveSwapChain;
+		LveRender lveRender{ Window,lveDevice };
 		std::unique_ptr<LvePipeline> lvePipeline;
 		VkPipelineLayout pipelineLayout;
-		std::vector<VkCommandBuffer> commandBuffer;
 		std::vector<LveGameObject> gameObject;
 
 		void loadGameObjects();
 		void createPipelineLayout();
 		void createPipeline();
-		void createCommandBuffers();
-		void freeCommandBuffers();
-		void drawFrame();
-		void recreateSwapChain();
-		void recordCommandBuffer(int imageIndex);
 		void renderGameObjects(VkCommandBuffer commandBuffer);
 	};
 }

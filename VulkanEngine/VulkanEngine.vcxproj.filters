@@ -39,6 +39,9 @@
     <ClCompile Include="LveModel.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LveRender.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LveWindow.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="LveGameObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LveRender.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,6 +22,7 @@
     <ClCompile Include="FirstApp.cpp" />
     <ClCompile Include="LveDevice.cpp" />
     <ClCompile Include="LvePipeline.cpp" />
+    <ClCompile Include="LveRender.cpp" />
     <ClCompile Include="LveWindow.cpp" />
     <ClCompile Include="LveSwapChain.cpp" />
     <ClCompile Include="LveModel.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="LveDevice.h" />
     <ClInclude Include="LveGameObject.h" />
     <ClInclude Include="LvePipeline.h" />
+    <ClInclude Include="LveRender.h" />
     <ClInclude Include="LveWindow.h" />
     <ClInclude Include="LveSwapChain.h" />
     <ClInclude Include="LveModel.h" />
