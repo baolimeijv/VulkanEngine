@@ -27,6 +27,7 @@
     <ClCompile Include="LveSwapChain.cpp" />
     <ClCompile Include="LveModel.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleRenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstApp.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="LveWindow.h" />
     <ClInclude Include="LveSwapChain.h" />
     <ClInclude Include="LveModel.h" />
+    <ClInclude Include="SimpleRenderSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compile.bat" />

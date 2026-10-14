@@ -1,7 +1,6 @@
 #pragma once
 
 #include"LveWindow.h"
-#include"LvePipeline.h"
 #include"LveDevice.h"
 #include"LveSwapChain.h"
 #include"LveGameObject.h"
@@ -13,13 +12,6 @@
 
 #include<vector>
 #include<memory>
-
-struct SimplePushConstantData
-{
-	glm::mat2 transform{1.0f};
-	glm::vec2 offset;
-	alignas(16) glm::vec3 color;
-};
 
 namespace lve
 {
@@ -40,13 +32,8 @@ namespace lve
 		LveWindow Window{ WIDTH,HEIGHT,"Hello Vulkan" };
 		LveDevice lveDevice{ Window };
 		LveRender lveRender{ Window,lveDevice };
-		std::unique_ptr<LvePipeline> lvePipeline;
-		VkPipelineLayout pipelineLayout;
-		std::vector<LveGameObject> gameObject;
+		std::vector<LveGameObject> gameObjects;
 
 		void loadGameObjects();
-		void createPipelineLayout();
-		void createPipeline();
-		void renderGameObjects(VkCommandBuffer commandBuffer);
 	};
 }

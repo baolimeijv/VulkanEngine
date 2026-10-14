@@ -9,8 +9,7 @@ namespace lve
 	LveRender::LveRender(LveWindow& window, LveDevice& device) :Window(window), lveDevice(device)
 	{
 		recreateSwapChain();
-		createCommandBuffers();
-	}
+		createCommandBuffers();	}
 
 	LveRender::~LveRender()
 	{
@@ -63,12 +62,13 @@ namespace lve
 			recreateSwapChain();
 		}
 
-		if (result != VK_SUCCESS)
+		else if (result != VK_SUCCESS)
 		{
 			throw std::runtime_error("failed to present swap chain image");
 		}
 
 		isFrameStarted = false;
+		currentFrameIndex = (currentFrameIndex + 1) % LveSwapChain::MAX_FRAMES_IN_FLIGHT;
 	}
 
 	void LveRender::beginSwapChainRenderPass(VkCommandBuffer commandBuffer)
@@ -114,7 +114,7 @@ namespace lve
 
 	void LveRender::createCommandBuffers()
 	{
-		commandBuffer.resize(lveSwapChain->imageCount());
+		commandBuffer.resize(LveSwapChain::MAX_FRAMES_IN_FLIGHT);
 
 		VkCommandBufferAllocateInfo allocateInfo{};
 		allocateInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -151,11 +151,12 @@ namespace lve
 		}
 		else
 		{
-			lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent, std::move(lveSwapChain));
-			if (lveSwapChain->imageCount() != commandBuffer.size())
+			std::shared_ptr<LveSwapChain> oldSwapChain = std::move(lveSwapChain);
+			lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent, oldSwapChain);
+
+			if (!oldSwapChain->compareSwapFormats(*lveSwapChain.get()))
 			{
-				freeCommandBuffers();
-				createCommandBuffers();
+				throw std::runtime_error("swap chain image(or depth) format has changed");
 			}
 		}
 	}
