@@ -80,6 +80,7 @@ namespace lve
 		ConfigInfo.depthStencilInfo.back = {};
 
 		ConfigInfo.dynamicStateEnables = { VK_DYNAMIC_STATE_VIEWPORT,VK_DYNAMIC_STATE_SCISSOR };
+
 		ConfigInfo.dynamicStateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
 		ConfigInfo.dynamicStateInfo.pDynamicStates = ConfigInfo.dynamicStateEnables.data();
 		ConfigInfo.dynamicStateInfo.dynamicStateCount = static_cast<uint32_t>(ConfigInfo.dynamicStateEnables.size());
@@ -100,6 +101,7 @@ namespace lve
 		file.close();
 		return buffer;
 	}
+
 	void LvePipeline::CreateGraphicsPipline(const std::string& VertFilepath, const std::string& fragFilepath, const PipelineConfigInfo& ConfigInfo)
 	{
 		assert(ConfigInfo.pipelineLayout != VK_NULL_HANDLE && "cannot create graphics pipeline:: no pipelineLayout provided in configInfo");
@@ -170,6 +172,7 @@ namespace lve
 		}
 
 	}
+
 	void LvePipeline::CreateShaderModule(const std::vector<char>& code, VkShaderModule* ShaderModule)
 	{
 		VkShaderModuleCreateInfo createInfo{};

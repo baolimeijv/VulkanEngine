@@ -9,7 +9,8 @@ namespace lve
 	LveRender::LveRender(LveWindow& window, LveDevice& device) :Window(window), lveDevice(device)
 	{
 		recreateSwapChain();
-		createCommandBuffers();	}
+		createCommandBuffers();	
+	}
 
 	LveRender::~LveRender()
 	{
@@ -69,6 +70,7 @@ namespace lve
 
 		isFrameStarted = false;
 		currentFrameIndex = (currentFrameIndex + 1) % LveSwapChain::MAX_FRAMES_IN_FLIGHT;
+
 	}
 
 	void LveRender::beginSwapChainRenderPass(VkCommandBuffer commandBuffer)
@@ -91,7 +93,6 @@ namespace lve
 		renderPassInfo.pClearValues = clearValues.data();
 
 		vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-
 		VkViewport viewport{};
 		viewport.x = 0;
 		viewport.y = 0;

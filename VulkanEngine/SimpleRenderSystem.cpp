@@ -54,7 +54,8 @@ namespace lve
 		for (auto& object : gameObjects)
 		{
 			i++;
-			object.transform2d.rotation = glm::mod<float>(object.transform2d.rotation + 0.0001f * i, 2.0f * glm::pi<float>());
+			object.transform.rotation.y = glm::mod<float>(object.transform.rotation.y + 0.0001f * i, 2.0f * glm::pi<float>());
+			object.transform.rotation.x = glm::mod<float>(object.transform.rotation.x + 0.00005f * i, 2.0f * glm::pi<float>());
 		}
 
 
@@ -63,9 +64,8 @@ namespace lve
 		for (auto& obj : gameObjects)
 		{
 			SimplePushConstantData push{};
-			push.offset = obj.transform2d.translation;
 			push.color = obj.color;
-			push.transform = obj.transform2d.mat2();
+			push.transform = obj.transform.mat4();
 			vkCmdPushConstants(commandBuffer, pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(SimplePushConstantData), &push);
 			obj.model->bind(commandBuffer);
 			obj.model->draw(commandBuffer);
