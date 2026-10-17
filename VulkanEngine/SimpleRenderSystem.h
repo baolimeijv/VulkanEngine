@@ -4,6 +4,7 @@
 #include"LveDevice.h"
 #include"LveSwapChain.h"
 #include"LveGameObject.h"
+#include"LveCamera.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -30,7 +31,7 @@ namespace lve
 		SimpleRenderSystem(const SimpleRenderSystem&) = delete;
 		SimpleRenderSystem& operator=(const SimpleRenderSystem&) = delete;
 
-		void renderGameObjects(VkCommandBuffer commandBuffer,std::vector<LveGameObject>&gameObjects);
+		void renderGameObjects(VkCommandBuffer commandBuffer,std::vector<LveGameObject>&gameObjects,const LveCamera &camera);
 
 	private:
 		LveDevice &lveDevice;

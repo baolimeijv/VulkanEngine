@@ -110,7 +110,7 @@ namespace lve
 		assert(isFrameStarted && "can not call endSwapChainRenderPass if frame is not in progress");
 		assert(commandBuffer == getCurrentCommandBuffer() && "can not end reder pass on command buffer from a different fream");
 
-		vkEndCommandBuffer(commandBuffer);
+		vkCmdEndRenderPass(commandBuffer);
 	}
 
 	void LveRender::createCommandBuffers()
