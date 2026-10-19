@@ -32,6 +32,7 @@
     <ClCompile Include="SimpleRenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="D:\Yang\新建文件夹\Vulkan游戏引擎从零开发\littleVulkanEngine\littleVulkanEngine\tutorial18\lve_utils.h" />
     <ClInclude Include="FirstApp.h" />
     <ClInclude Include="KeyboardMovementController.h" />
     <ClInclude Include="LveCamera.h" />
@@ -151,7 +152,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(VULKAN_SDK)\Include;E:\Tools\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VULKAN_SDK)\Include;E:\Tools\glfw-3.4.bin.WIN64\include;E:\Projects\Vulkan_Projects\VulkanEngine\VulkanEngine\tinyobjloader</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,6 +170,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>;E:\Projects\Vulkan_Projects\VulkanEngine\VulkanEngine\tinyobjloader</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

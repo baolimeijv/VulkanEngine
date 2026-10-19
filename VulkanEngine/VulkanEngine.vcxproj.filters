@@ -86,6 +86,9 @@
     <ClInclude Include="KeyboardMovementController.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Yang\新建文件夹\Vulkan游戏引擎从零开发\littleVulkanEngine\littleVulkanEngine\tutorial18\lve_utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compile.bat">
