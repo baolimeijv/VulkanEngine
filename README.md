@@ -14,8 +14,6 @@ C++17 + Vulkan 从零实现，不使用任何引擎框架。
 - [x] **相机**（透视投影，P×V×M 上传）+ 键盘相机控制
 - [x] **模型加载**（tinyobjloader + 顶点去重）
 - [x] **渲染器分层**：`LveRender`（帧生命周期）+ `SimpleRenderSystem`（渲染系统）
-- [ ] Descriptor Set + UBO（进行中）
-- [ ] 纹理 / Mipmap（计划）
 
 ## 架构
 
