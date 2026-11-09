@@ -66,8 +66,3 @@ App 只负责 beginFrame → 提交渲染 → endFrame，不必关心同步对�
 1. 打开 `VulkanEngine.sln`
 2. 配置选择 `Debug | x64`
 3. F5 运行（着色器由自定义生成工具自动调用 glslc 编译）
-
-## 已知问题与后续计划
-
-- 交换链 semaphore 复用问题（同步 bug，待修）
-- Descriptor Set + UBO → 纹理 → 光照
